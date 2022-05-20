@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+    <h3>文件上传：</h3>
+    选择一个文件上传: <br />
+    <!-- 上传文件的模板代码 -->
+    <form action="/api/upload" method="post" enctype="multipart/form-data">
+        <!-- 将对应的名字改变为文件的名字 -->
+        <!-- 改为file才能调用对应的文件资源管理器 -->
+        <input type="file" name="content" />
+        <br/>
+        <input type="submit" value="上传文件" />
+    </form>
+    
+</body>
+</html>

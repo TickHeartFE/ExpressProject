@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Catalog</title>
+    <!-- 链接上对应的样式组件 -->
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <script src="js/index_function.js"></script>
+    <script src="js/share.js"></script>
+</head>
+
+<body>
+    <script>
+        // 对该页面进行一个登录状态的核验
+        sendAjax6("loginCheck");
+    </script>
+    <div class="tm-page-wrap mx-auto">
+        <!-- 导航栏 -->
+        <div class="position-fixed header">
+            <nav class="navbar navbar-expand-lg " id="tm-main-nav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="index.html" class="tm-bg-black text-center tm-logo-container ">
+                        <h1 class="tm-site-name">首页</h1>
+                    </a>
+                    <!-- 使用对应的样式进行调整 -->
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="contact.html" class="tm-bg-black text-center tm-logo-container ">
+                            <h1 class="tm-site-name">关于</h1>
+                        </a>
+                        <!-- 使用对应的样式进行调整 -->
+                    </div>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="about.html" class="tm-bg-black text-center tm-logo-container ">
+                                <h1 class="tm-site-name">添加视频</h1>
+                            </a>
+                            <!-- 使用对应的样式进行调整 -->
+                        </div>
+                        <div class="navbar-right">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                            <ul class="navbar-nav text-uppercase" id="generate_nav">
+                                            </ul>
+                                            <script>
+                                                generateNav("generate_nav");
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登录</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="register.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">注册</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a onclick="sendAjax8('loginOut')" href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登出</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- Page content -->
+        <div class="container-fluid">
+            <div class="mx-auto tm-content-container">
+                <main>
+                    <!-- 获得对应的query参数并发送请求 -->
+                    <script>
+                        // 获取对应的参数并发送请求
+                        // 拿到对应的query参数 然后进行打印
+                        var searchIndex = getQueryVariable("index");
+                        console.log(searchIndex);
+
+                        // 用对应的query参数进行ajax请求 封装好的ajax请求 进行两次ajax请求
+                        // 第一次ajax请求更新视频src
+                        sendAjax("guinguinTest", searchIndex);
+                        // 第二次ajax请求更新评论
+                        sendAjax3("drawComment", searchIndex);
+                    </script>
+                    <div class="row mb-5 pb-4">
+                        <div class="col-12">
+                            <!-- Video player 1422x800 -->
+                            <video id="mp4Icon" width="1422" height="800" controls autoplay>
+                                <source src="video/wheat-field.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <!-- 对应的评论区代码 -->
+                        <h2 class="mb-5 tm-text-primary">评论</h2>
+                        <div class="comment-wrap">
+                            <div class="comment-block">
+                                <form action="">
+                                    <textarea id="comment-texting" cols="30" rows="3" placeholder="说点啥..."></textarea>
+                                </form>
+                                <button class="comment-actions btn btn-primary tm-btn-small" onclick="submitComment();">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                        <div id="comments"></div>
+                    </div>
+                    <div class="row pt-4 pb-5">
+                        <div class="col-12">
+                            <h2 class="mb-5 tm-text-primary">相关视频</h2>
+                            <main>
+                                <div id="generate">
+                                    <script>
+                                        // 同样发送ajax请求获取数据
+                                        sendAjax4("drawIndex");
+                                    </script>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </main>
+                <div class="row mt-5 pt-3">
+                    <div class="col-xl-6 col-lg-12 mb-4">
+                        <div class="tm-bg-gray p-5 h-100">
+                            <h3 class="tm-text-primary mb-3">gulugulu</h3>
+                            <p class="mb-5">gulugulu是一个对标某视频网站的界面，想了解我们的话等我们有时间把关于我们界面做完再说吧。
+                                <br>不过你可以先留下你的邮箱
+                            </p>
+                            <form action="" method="GET" class="tm-subscribe-form">
+                                <input type="text" name="email" placeholder="实际上你写了啥我们也看不到" required>
+                                <button type="submit" class="btn rounded-0 btn-primary tm-btn-small">提交</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                        <div class="p-5 tm-bg-gray h-100">
+                            <h3 class="tm-text-primary mb-4">传送门</h3>
+                            <ul class="list-unstyled tm-footer-links" id="bottom-nav">
+                            </ul>
+                            <script>
+                                generateBottomNav("bottom-nav");
+                            </script>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                        <div class="p-5 tm-bg-gray h-100">
+                            <h3 class="tm-text-primary mb-4">用户</h3>
+                            <ul class="list-unstyled tm-footer-links">
+                                <li><a href="/login.html">登录</a></li>
+                                <li><a href="/register.html">注册</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <footer class="row pt-5">
+                    <div class="col-12">
+                        <p class="text-right">gulugulu限定</p>
+                    </div>
+                </footer>
+            </div>
+            <!-- .tm-content-container -->
+        </div>
+    </div>
+    </script>
+</body>
+
+</html>

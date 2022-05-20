@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Catalog</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/index_function.js"></script>
+    <script src="js/share.js"></script>
+</head>
+
+<body>
+    <script>
+        // 检查有无登录即可
+        // 状态检查请求 检查登录状态的请求
+        sendAjax6("loginCheck");
+    </script>
+    <div class="tm-page-wrap mx-auto">
+        <!-- 导航栏 -->
+        <div class="position-fixed header">
+            <nav class="navbar navbar-expand-lg " id="tm-main-nav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="index.html" class="tm-bg-black text-center tm-logo-container ">
+                        <h1 class="tm-site-name">首页</h1>
+                    </a>
+                    <!-- 使用对应的样式进行调整 -->
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="contact.html" class="tm-bg-black text-center tm-logo-container ">
+                            <h1 class="tm-site-name">关于</h1>
+                        </a>
+                        <!-- 使用对应的样式进行调整 -->
+                    </div>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="addVedio.html" class="tm-bg-black text-center tm-logo-container ">
+                                <h1 class="tm-site-name">添加视频</h1>
+                            </a>
+                            <!-- 使用对应的样式进行调整 -->
+                        </div>
+                        <div class="navbar-right">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                            <ul class="navbar-nav text-uppercase" id="generate_nav">
+                                            </ul>
+                                            <script>
+                                                generateNav("generate_nav");
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登录</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="register.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">注册</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a onclick="sendAjax8('loginOut')" href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登出</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Page content -->
+        <main>
+            <div class="container-fluid px-0">
+                <div class="parallax-window parallax-window-2" data-parallax="scroll" data-image-src="img/contact-2.jpg"></div>
+
+                <div class="mx-auto tm-content-container mt-4 px-3 mb-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="tm-page-title mb-5 tm-text-primary">团队介绍</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-5 pt-3">
+                            <div class="media tm-testimonial">
+                                <img class="mr-4 rounded-circle img-fluid" src="img/profile1.jpg" alt="Generic placeholder image" width="200">
+                                <p class="media-body pt-3 tm-testimonial-text">
+                                    王嘉浩<br> 完成了首页与本介绍页面的制作，包括导航栏、底部栏的制作，并用Javascript写出网页背后逻辑。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-5 pt-3">
+                            <div class="media tm-testimonial">
+                                <img class="mr-4 rounded-circle img-fluid" src="img/profile2.jpg" alt="Generic placeholder image" width="200">
+                                <p class="media-body pt-3 tm-testimonial-text">
+                                    陈炯麟<br> 完成了视频展示页面和视频添加页面的制作，使用nodejs express轻量级框架搭建整个项目后台，用sessioin完成登录验证，mysql存储用户、评论以及视频信息
+                                    ajax异步请求动态数据
+                                    最终部署整个项目
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-5 pt-3">
+                            <div class="media tm-testimonial">
+                                <img class="mr-4 rounded-circle img-fluid" src="img/profile3.jpg" alt="Generic placeholder image" width="200">
+                                <p class="media-body pt-3 tm-testimonial-text">
+                                    汪佳琦<br> 完成了登录页面和注册页面的内容
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="row mt-5 pt-3">
+            <div class="col-xl-6 col-lg-12 mb-4">
+                <div class="tm-bg-gray p-5 h-100">
+                    <h3 class="tm-text-primary mb-3">gulugulu</h3>
+                    <p class="mb-5">gulugulu是一个对标某视频网站的界面，想了解我们的话等我们有时间把关于我们界面做完再说吧。
+                        <br>不过你可以先留下你的邮箱
+                    </p>
+                    <form action="" method="GET" class="tm-subscribe-form">
+                        <input type="text" name="email" placeholder="实际上你写了啥我们也看不到" required>
+                        <button type="submit" class="btn rounded-0 btn-primary tm-btn-small">提交</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                <div class="p-5 tm-bg-gray h-100">
+                    <h3 class="tm-text-primary mb-4">传送门</h3>
+                    <ul class="list-unstyled tm-footer-links" id="bottom-nav">
+                    </ul>
+                    <script>
+                        generateBottomNav("bottom-nav");
+                    </script>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                <div class="p-5 tm-bg-gray h-100">
+                    <h3 class="tm-text-primary mb-4">用户</h3>
+                    <ul class="list-unstyled tm-footer-links">
+                        <li><a href="/login.html">登录</a></li>
+                        <li><a href="/register.html">注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+
+        <footer class="row pt-5">
+            <div class="col-12">
+                <p class="text-right">咕噜咕噜限定</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+</body>
+
+</html>

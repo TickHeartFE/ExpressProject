@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index_function.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/register_function.js"></script>
+</head>
+
+
+<body background="img/about-1.jpg">
+    <div class="login-page">
+        <!-- 导航栏 -->
+        <div class="position-fixed header">
+            <nav class="navbar navbar-expand-lg " id="tm-main-nav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="index.html" class="tm-bg-black text-center tm-logo-container ">
+                        <h1 class="tm-site-name">首页</h1>
+                    </a>
+                    <!-- 使用对应的样式进行调整 -->
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="contact.html" class="tm-bg-black text-center tm-logo-container ">
+                            <h1 class="tm-site-name">关于</h1>
+                        </a>
+                        <!-- 使用对应的样式进行调整 -->
+                    </div>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="addVedio.html" class="tm-bg-black text-center tm-logo-container ">
+                                <h1 class="tm-site-name">添加视频</h1>
+                            </a>
+                            <!-- 使用对应的样式进行调整 -->
+                        </div>
+                        <div class="navbar-right">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                            <ul class="navbar-nav text-uppercase" id="generate_nav">
+                                            </ul>
+                                            <script>
+                                                generateNav("generate_nav");
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登录</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="register.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">注册</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a onclick="sendAjax8('loginOut')" href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登出</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="form">
+            <!-- 将对应的类值进行更改 -->
+            <div id="error_display" class="checkout_error" style="display: none;"> ok</div>
+            <div class="login-form">
+                <input class="text_field" id="email" type="text" placeholder="请输入邮箱地址" />
+                <input class="text_field" id="reenter_email" type="text" placeholder="请再次输入邮箱地址" />
+                <input class="text_field" id="accountname" type="text" placeholder="请输入您的用户名" />
+                <input class="text_field" id="password" type="password" placeholder="请输入密码" />
+                <input class="text_field" id="reenter_password" type="password" placeholder="请再次输入密码" />
+
+                <button onclick="sendUserMes2()">注册</button>
+                <p class="message">已经注册过了? <a href="./login.html">登录</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 定义一个异步事件
+        function sendUserMes2() {
+            if (checkregister())
+                sendAjax7("register", document.getElementById("accountname").value, document.getElementById("password").value);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-video-catalog.css">
+    <script src="js/index_function.js"></script>
+</head>
+
+
+<body background="img/about-1.jpg">
+    <script>
+        // 状态检查请求 检查登录状态的请求
+        sendAjax6("loginCheck");
+    </script>
+    <div class="login-page">
+        <!-- 导航栏 -->
+        <div class="position-fixed header">
+            <nav class="navbar navbar-expand-lg " id="tm-main-nav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="index.html" class="tm-bg-black text-center tm-logo-container ">
+                        <h1 class="tm-site-name">首页</h1>
+                    </a>
+                    <!-- 使用对应的样式进行调整 -->
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="contact.html" class="tm-bg-black text-center tm-logo-container ">
+                            <h1 class="tm-site-name">关于</h1>
+                        </a>
+                        <!-- 使用对应的样式进行调整 -->
+                    </div>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="about.html" class="tm-bg-black text-center tm-logo-container ">
+                                <h1 class="tm-site-name">添加视频</h1>
+                            </a>
+                            <!-- 使用对应的样式进行调整 -->
+                        </div>
+                        <div class="navbar-right">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                            <ul class="navbar-nav text-uppercase" id="generate_nav">
+                                            </ul>
+                                            <script>
+                                                generateNav("generate_nav");
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登录</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="register.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">注册</h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a onclick="" href="login.html" class="text-center tm-login-container ">
+                                            <h1 class="tm-site-name">登出</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </nav>
+        </div>
+
+        <!-- 对应的form表单样式 -->
+        <form action="/api/upload" method="post" class="form" enctype="multipart/form-data">
+            <input class="text_field" id="VideoName" name="content" type="text" placeholder="Your video name" />
+            <input class="text_field" id="VideoSet" name="content" type="text" placeholder="Your video set" />
+            <!-- 上传对应的图片与视频 -->
+            <!-- 对应一定要将name属性改为content -->
+            <input class="text_field" id="VideoSrc" name="content" type="file" accept="audio/mp4, video/mp4" />
+            <input class="text_field" id="ImgSrc" name="content" type="file" accept="image/jpeg,image/png" />
+            <input type="submit" value="加入视频">
+        </form>
+    </div>
+</body>
+
+</html>
